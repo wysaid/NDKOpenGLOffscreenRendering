@@ -21,6 +21,7 @@ public class GLHelpFunctions {
 	static int[] num_config = new int[1];
 
 	static int[] configSpec = { EGL10.EGL_SURFACE_TYPE, EGL10.EGL_PBUFFER_BIT,
+			EGL_RENDERABLE_TYPE, EGL_OPENGL_ES2_BIT,
 			EGL10.EGL_RED_SIZE, 8, EGL10.EGL_GREEN_SIZE, 8,
 			EGL10.EGL_BLUE_SIZE, 8, EGL10.EGL_ALPHA_SIZE, 8, EGL10.EGL_NONE };
 	// eglCreatePbufferSurface used this config
