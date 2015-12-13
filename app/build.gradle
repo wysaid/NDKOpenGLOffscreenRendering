@@ -1,0 +1,25 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "org.wysaid.ndkopenglbackdraw"
+        minSdkVersion 8
+        targetSdkVersion 22
+
+        ndk {
+            moduleName "NDKOpenGLBackDraw"
+            abiFilters "armeabi"
+            ldLibs "log", "android", "EGL", "GLESv2", "jnigraphics"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
