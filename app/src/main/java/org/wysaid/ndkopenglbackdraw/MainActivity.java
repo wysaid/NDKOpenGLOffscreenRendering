@@ -1,5 +1,7 @@
 package org.wysaid.ndkopenglbackdraw;
 
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -28,6 +30,14 @@ public class MainActivity extends Activity {
 		button.setOnClickListener(clickListener);
 		GLHelpFunctions.initEGL();
 		bitmap = Bitmap.createBitmap(800, 800, Bitmap.Config.ARGB_8888);
+
+		Bitmap displayBitmap = ((BitmapDrawable)displayView.getDrawable()).getBitmap();
+		Canvas canvas = new Canvas(bitmap);
+		for(int i = 0; i < bitmap.getHeight(); i += displayBitmap.getHeight()) {
+			for(int j = 0; j < bitmap.getWidth(); j += displayBitmap.getWidth()) {
+				canvas.drawBitmap(displayBitmap, j, i, null);
+			}
+		}
 	}
 
 	@Override
